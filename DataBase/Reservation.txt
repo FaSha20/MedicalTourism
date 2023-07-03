@@ -1,0 +1,34 @@
+# Package Info:
+Package ID: 1
+Has tourism side: yes
+Travel duration: 20
+Travel level: luxury
+Approximate cost: 1900$
+# Documents:
+done
+# Status:
+FINAL
+# Final Cost:
+2090.0$
+# Payment:
+ Result: Successfull transaction!
+cost: 2090.0
+
+
+# Package Info:
+Package ID: 5
+Has tourism side: yes
+Travel duration: 16
+Travel level: economy
+Approximate cost: 1060$
+# Documents:
+done
+# Status:
+FINAL
+# Final Cost:
+1166.0$
+# Payment:
+ Result: Successfull transaction!
+cost: 1166.0
+
+
