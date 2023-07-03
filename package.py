@@ -16,9 +16,9 @@ class Package:
         
 
     def get_required_docs(self):
-        if self.category == COSMETIC:
+        if int(self.category) == COSMETIC:
             self.required_docs.append("History of cosmetic surgery")
-        elif self.category == HEART:
+        elif int(self.category) == HEART:
             self.required_docs.append("History of heart attack")
         return ','.join(self.required_docs)
     

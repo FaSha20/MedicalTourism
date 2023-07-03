@@ -1,8 +1,8 @@
 from category import CategoryDAO
 from reservation import ReservationDAO, Reservation
 
-cat_address = "DataBase\categories.txt"
-res_address = "DataBase\reservation.txt"
+cat_address = "DataBase\Categories.txt"
+res_address = "DataBase\Reservation.txt"
 
 class MedicalTourism:
     def __init__(self) -> None:
@@ -21,19 +21,24 @@ class MedicalTourism:
         for c in self.categories:
             if c.is_match(cat_id):
                 return c
-        return None
+        raise Exception("The entered category ID is not valid")
     
     def find_package_by_id(self, pack_id):
         for c in self.categories:
             found_pack = c.find_package_by_id(pack_id)
             if found_pack:
                 return found_pack
-        return None
+        raise Exception("The entered package ID is not valid") 
     
     def add_reservation(self, wanted_package, documents):
         new_reservation = Reservation(wanted_package, documents)
-        self.reservations.append(new_reservation)
         return new_reservation
+    
+    def finalize_res(self, reservation, card_info):
+        reservation.pay(card_info)
+        self.reservations.append(reservation)
+        self.res_DAO.add_to_database(reservation)
+        return reservation.to_string()
 
     
 
