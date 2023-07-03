@@ -15,12 +15,12 @@ class Main:
 
         while True:
             choice = int(input("""
-            What do you want to do?
-            1) See all Medical Categories 
-            2) Find appropriate package
-            3) Reserve a Package
-            4) Quit
-            Your choice :  """))
+What do you want to do?
+1) See all Medical Categories 
+2) Find appropriate package
+3) Reserve a Package
+4) Quit
+Your choice :  """))
             if (choice == QUIT):
                 break
 

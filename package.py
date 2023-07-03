@@ -12,10 +12,10 @@ class Package:
         self.duration = int(info_list[1])
         self.level = info_list[2]
         self.required_docs =  ["Identity card", "Passport"]
-        self.cost = 0
-        self.calc_cost()
+        self.cost = self.calc_cost()
+        
 
-    def get_reguired_docs(self):
+    def get_required_docs(self):
         if self.category == COSMETIC:
             self.required_docs.append("History of cosmetic surgery")
         elif self.category == HEART:
@@ -43,15 +43,18 @@ class Package:
         return (id == self.id)
     
     def calc_cost(self):
-        self.cost += (self.duration * 10)
+        cost = (self.duration * 10)
         if(self.level == "luxury"):
-            self.cost += 1000
+            cost += 1000
         elif(self.level == "midrange"):
-            self.cost += 500
+            cost += 500
         else:
-            self.cost += 200
+            cost += 200
         if(self.has_tourism_side):
-            self.cost += 700
+            cost += 700
+        return cost
+
+    
         
 
 

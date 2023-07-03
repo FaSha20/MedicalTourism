@@ -24,7 +24,21 @@ class CommandHandler:
             response = "\n-This is the most similar package we've found:\n" + best_pack.to_string() 
 
         elif(command == RESERVE_PACKAGE):
-            pass
+            pack_id = int(input("Enter package ID: "))
+            wanted_package = self.system.find_package_by_id(pack_id)
+            if(wanted_package == None):
+                raise Exception("The entered package ID is not valid") 
+            
+            rqu_docs = wanted_package.get_required_docs()
+            documents = input("To continue reservation, please upload these documents: "+ rqu_docs + "\n(done): ")
+
+            new_reservation = self.system.add_reservation(wanted_package, documents)
+            feedback = input("-This is your reservation: \n"+ new_reservation.to_string() +"\nDo you want to finalize it? (yes/no): ")
+            if feedback == "yes":
+                card_info = input("Enter your credit card password (4 digits) : ")
+                new_reservation.pay(card_info)
+                response = "\n-Your final Reservation:\n"+new_reservation.to_string()
+            
 
 
         else:
