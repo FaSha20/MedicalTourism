@@ -1,0 +1,2 @@
+1,Cosmetic Surgery is done to change your appearance like redesigning the body's contour and shape or smoothing wrinkles or eliminating balding areas,3,yes 20 luxury,no 15 midrange,yes 16 economy
+2,Cardiothoracic Surgery is a field of medicine involved in surgical treatment of organs inside the thoracic cavity,2,yes 30 luxury,yes 16 economy

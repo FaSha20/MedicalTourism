@@ -7,6 +7,8 @@ class Reservation:
         self.status = "PRIMARY"
         self.total_cost = self.calc_total_cost()
         self.payment = None
+        self.supporter = None
+        self.user = None
 
     def calc_total_cost(self):
         # add %10 tax
@@ -17,16 +19,28 @@ class Reservation:
         self.payment.start_transaction()
         self.status = "FINAL"
         
-
+    def to_string1(self):
+        if self.payment :
+            py = self.payment.to_string()
+        else:
+            py = "Nothing was paid."
+        return '\n'.join(["# Package Info:\n"+self.package.to_string(), "\n# Documents:\n"+self.docs,
+                          "\n# Status:\n"+self.status, "\n# Final Cost:\n"+str(self.total_cost)+"$", 
+                          "\n# Payment:\n "+py])
     def to_string(self):
         if self.payment :
             py = self.payment.to_string()
         else:
             py = "Nothing was paid."
-        return '\n'.join(["# Package Info:\n"+self.package.to_string(), "# Documents:\n"+self.docs,
-                          "# Status:\n"+self.status, "# Final Cost:\n"+str(self.total_cost)+"$", 
-                          "# Payment:\n "+py])
+        return '\n'.join(["# Supporter:\n" + self.supporter +"\n# User:\n"+ self.user+"\n# Package Info:\n"+self.package.to_string(), "\n# Documents:\n"+self.docs,
+                          "\n# Status:\n"+self.status, "\n# Final Cost:\n"+str(self.total_cost)+"$", 
+                          "\n# Payment:\n "+py])
+    
+    def setUser(self,username):
+        self.user = username
 
+    def setSuppoerter(self,supporter):
+        self.supporter = supporter
 
 class ReservationDAO:
     def __init__(self, address) -> None:

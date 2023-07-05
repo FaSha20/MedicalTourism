@@ -1,0 +1,10 @@
+fatemeh,yes,5,laxury
+pp,yes,5,laxury
+fatemeh,yes,4,laxury
+fatemeh,yes,4,laxury
+fatemeh,yes,3,laxury
+fatemeh,yes,3,laxury
+pp,yes,2,laxury
+pp,yes,3,laxury
+pp,yes,4,laxury
+hh,yes,6,laxury
