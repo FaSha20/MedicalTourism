@@ -2,6 +2,7 @@ import unittest
 from medicalTourism import MedicalTourism
 from package import Package
 from reservation import Reservation
+from supporter import Supporter
 
 
 class TestStringMethods(unittest.TestCase):
@@ -9,13 +10,16 @@ class TestStringMethods(unittest.TestCase):
     system = MedicalTourism()
     p1 = Package("1", "true 20 midrange")
     r1 = Reservation(p1,"")
+    s1 = Supporter("name,free")
+
 
     def test_reserve_creation(self):
         n_r = self.system.add_reservation(self.p1, "")
         self.assertIsInstance(n_r, Reservation)
 
     def test_finalize_reserve(self):
-        report = self.system.finalize_res(self.r1, "1234")
+        self.system.supporters = [self.s1]
+        report = self.system.finalize_res(self.r1, "1234", "fatemeh")
         self.assertIsInstance(report, str)
 
     def test_find_package_by_id(self):

@@ -13,6 +13,21 @@ class Main:
         mt = MedicalTourism()
         ch = CommandHandler(mt)
 
+        while True :
+            entered = input("Do you want to sign up/sign in ? ")
+            if entered == "sign in" or entered == "sign up": 
+                    print("Enter your username and password :")
+                    username = input("Username : ")
+                    passWord = input("PassWord : ")
+                    try:
+                        respons = ch.customerHndl(username,passWord,entered)
+                        print(respons)
+                        break
+                    except Exception as e:
+                        print("ERROR: ", e)
+                        continue
+            else :
+                print("Wrong input. Try agian.\n")
         while True:
             choice = int(input("""
     What do you want to do?
